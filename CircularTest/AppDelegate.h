@@ -2,8 +2,8 @@
 //  AppDelegate.h
 //  CircularTest
 //
-//  Created by qtone_yzt on 15/7/24.
-//  Copyright (c) 2015年 qtone_yzt. All rights reserved.
+//  Created by  bluefishon 15/7/24.
+//  Copyright (c) 2015年 bluefish. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

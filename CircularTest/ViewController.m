@@ -2,8 +2,8 @@
 //  ViewController.m
 //  CircularTest
 //  坑死你大爷
-//  Created by qtone_yzt on 15/7/24.
-//  Copyright (c) 2015年 qtone_yzt. All rights reserved.
+//  Created by bluefish on 15/7/24.
+//  Copyright (c) 2015年 bluefish. All rights reserved.
 //
 
 #import "ViewController.h"

@@ -2,8 +2,8 @@
 //  CircularProgressView.m
 //  SpeakingYzt
 //
-//  Created by qtone_yzt on 15/7/27.
-//  Copyright (c) 2015年 qtone_yzt. All rights reserved.
+//  Created by  on 15/7/27.
+//  Copyright (c) 2015年 . All rights reserved.
 //
 
 #import "CircularProgressView.h"
