@@ -8,48 +8,67 @@
 
 #import "ViewController.h"
 
+#define BRELEASE(obj){}        if(obj)[obj release];obj=nil;
+#define Color(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+
 @interface ViewController ()
-{
-    TestView *view;
-    
-}
+
 @end
 
 @implementation ViewController
 
+- (void)dealloc{
+    BRELEASE(excellentView);
+    [super dealloc];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    view=[[TestView alloc] initWithFrame:CGRectMake(40, 40, 100, 100)];
-    [self.view addSubview:view];
+//    view=[[TestView alloc] initWithFrame:CGRectMake(40, 40, 100, 100)];
+//    [self.view addSubview:view];
+//
+    excellentView=[[CircularProgressView alloc] initWithFrame:CGRectMake(40, 40, 100, 100)];
+    [excellentView setLineWith:9];
+    [excellentView setBackColorColor:Color(9, 137, 238, 1)];
+    [excellentView setProgressColor:Color(174, 255, 176, 1)];
+    [self.view addSubview:excellentView];
     
-//    [view strokeStart:0];
-//    [view strokeEnd:0];
     
-    UIButton *btn=[[UIButton alloc] initWithFrame:CGRectMake(100, 400, 100, 30)];
-    [btn setTitle:@"click" forState:UIControlStateNormal];
+
+    UIButton *btn=[[UIButton alloc] initWithFrame:CGRectMake(excellentView.frame.origin.x, 400, 100, 30)];
+    [btn setTitle:@"3秒转完" forState:UIControlStateNormal];
     btn.backgroundColor=[UIColor redColor];
     [btn addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
     btn.selected=YES;
     [self.view addSubview:btn];
-
+    [btn release];
+    
+    UIButton *btn1=[[UIButton alloc] initWithFrame:CGRectMake(btn.frame.origin.x+100+100, 400, 100, 30)];
+    [btn1 setTitle:@"转至一半" forState:UIControlStateNormal];
+    btn1.backgroundColor=[UIColor redColor];
+    [btn1 addTarget:self action:@selector(clickToHalf) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn1];
+    [btn1 release];
     
 }
 
 - (void)click:(id)sender{
     UIButton *btn=sender;
     if (btn.selected) {
-         [view playToEndInTime:3];
+         [excellentView playToEndInTime:3];
     }else{
-        [view stop];
-        [view reSet];
+        [excellentView stop];
+        [excellentView reSet];
         
     }
     btn.selected=!btn.selected;
    
 }
 
-
+- (void)clickToHalf{
+    [excellentView setProgress:0.5];
+}
 
 
 

@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-#import "TestView.h"
+#import "CircularProgressView.h"
 
 @interface ViewController : UIViewController
 {
     CADisplayLink *displayLink;
+    CircularProgressView *excellentView;
 }
 @end
 
